@@ -8,3 +8,23 @@
 </ul>
 
 <app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>
+
+<div class="new-hero-background">
+    <button (click)="openAddNewHeroSnippet()">Add new hero</button>
+    <div *ngIf="addNewHeroSnippet" id="add-new-hero-snippet">
+        <label for="hero-name">Hero name</label>
+        <input name="hero-name" type="text" (input)="newHero.name = $event.target.value"/>
+        <br />
+        <label for="hero-power">Hero power</label>
+        <select name="hero-power" selected="newHero.power" (change)="newHero.power = $event.target.value">
+            <option value="Summoning Husaria">Summoning Husaria</option>
+            <option value="Flying">Flying</option>
+            <option selected value="Invisibility on demand">Invisibility on demand</option>
+            <option value="Teleportation in 10km radius">Teleportation in 10km radius</option>
+          </select>
+          <br />
+          <button (click)="addNewHero()">Add</button>
+          <button (click)="cancelNewHero()">Cancel</button>
+        <hr>
+    </div>
+</div>

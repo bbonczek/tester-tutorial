@@ -13,13 +13,11 @@ const HEROES = [
 export class BackendService {
   constructor(private logger: Logger) {}
 
-  getAll(type: Type<any>): PromiseLike<any[]> {
-    if (type === Hero) {
-      // TODO: get from the database
-      return Promise.resolve<Hero[]>(HEROES);
-    }
-    const err = new Error('Cannot get object of this type');
-    this.logger.error(err);
-    throw err;
+  getAll(): Hero[] {
+    return HEROES;
+  }
+
+  addNew(name, power) {
+      HEROES.push(new Hero(name, power));
   }
 }
