@@ -8,9 +8,9 @@
 </ul>
 
 <app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>
-
+<hr>
 <div class="new-hero-background">
-    <button (click)="openAddNewHeroSnippet()">Add new hero</button>
+    <button (click)="openAddNewHeroSnippet()">Open add new hero snippet</button>
     <div *ngIf="addNewHeroSnippet" id="add-new-hero-snippet">
         <label for="hero-name">Hero name</label>
         <input name="hero-name" type="text" (input)="newHero.name = $event.target.value"/>
@@ -22,6 +22,8 @@
             <option selected value="Invisibility on demand">Invisibility on demand</option>
             <option value="Teleportation in 10km radius">Teleportation in 10km radius</option>
           </select>
+          <br />
+          <p *ngIf="errorOccured" class="error-message">You must provide both name and power</p>
           <br />
           <button (click)="addNewHero()">Add</button>
           <button (click)="cancelNewHero()">Cancel</button>

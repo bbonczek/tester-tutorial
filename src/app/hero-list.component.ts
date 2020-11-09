@@ -18,6 +18,7 @@ import { HeroService } from './hero.service';
     }
 
     .new-hero-background {
+        margin-top: 10px;
         background-color: antiquewhite;
     }
 
@@ -26,6 +27,9 @@ import { HeroService } from './hero.service';
         margin-bottom: 10px;
     }
 
+    .error-message {
+        color: red;
+    }
   `],
   providers:  [ HeroService ]
 })
@@ -34,6 +38,7 @@ export class HeroListComponent implements OnInit {
   selectedHero: Hero;
   addNewHeroSnippet = false;
 
+  errorOccured = false;
   readonly originalNewHero = {
     name: '',
     power: 'Invisibility on demand',
@@ -57,13 +62,20 @@ export class HeroListComponent implements OnInit {
   }
 
   addNewHero() {
-      this.service.addNewHero(this.newHero.name, this.newHero.power);
-
-      this.heroes = this.service.getHeroes();
+      if (this.newHero.name && this.newHero.power) {
+        this.service.addNewHero(this.newHero.name, this.newHero.power);
+        this.heroes = this.service.getHeroes();
+        this.addNewHeroSnippet = false;
+        this.errorOccured = false;
+      } else {
+        this.errorOccured = true;
+      }
   }
 
   cancelNewHero() {
     this.newHero = this.originalNewHero;
     this.addNewHeroSnippet = false;
+
+    this.errorOccured = false;
   }
 }
