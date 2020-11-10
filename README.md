@@ -31,3 +31,24 @@ TO CO JEST NAJWAŻNIEJSZE:
 3) Po stworzeniu nowego brancha chcesz wypchąć swoje zmiany, tak żeby inni je widzieli, ale na remocie nie ma jeszcze brancha:
 - `git push --set-upstream origin <nazwa-brancha>`
 Jeżeli tego nie pamiętasz, uzyj  po prostu `git push`, a git podpowie ci całą komendę
+
+## CSSowe selektory
+ - `#` - id
+ - `.` - class
+ - ` ` (nic) - selektor htmlowy
+
+ Co do łączenia selektorów:
+ - `>` - wskazuje na bezpośrenio potomka (dziecko) jakiegoś elementu. Na przykład `.super-klasa > .nazwa-klasy` wybierze element z klasą `nazwa-klasy`, ale tylko taki, który jest dzieckiem elementu z klasą `super-klasa`
+ - ` ` (spacja) - wskazuje na bliżej niesprecyzowaneg potomka jakiegoś elementu. Na przykład `.super-klasa .nazwa-klasy` wybierze wszystkie elementy z klasą `nazwa-klasy`, które są dzieckiem/wnukiem/prawnukiem/... elementu z klasą `super-klasa`
+
+ Czasem używa się też selektorów 'porządkowych':
+ - `first-child`
+ - `only-child`
+ - `last-child`
+ - `nth-child(x)` - (x jest liczbą).
+
+ Są jeszcze inne, ale są praktycznie nieużywane.
+
+ Seletory można łączyć ze sobą - na przykład `div.nazwa-klasy` wybierze element div, który jednocześnie ma klase 'nazwa-klasy'.
+
+ Ściąga: https://appletree.or.kr/quick_reference_cards/CSS/CSS%20selectors%20cheatsheet.pdf
