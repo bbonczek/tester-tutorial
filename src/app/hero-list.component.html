@@ -1,0 +1,32 @@
+<h2>Hero List</h2>
+
+<p><i>Pick a hero from the list</i></p>
+<ul>
+  <li *ngFor="let hero of heroes" (click)="selectHero(hero)">
+    {{hero.name}}
+  </li>
+</ul>
+
+<app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>
+<hr>
+<div class="new-hero-background">
+    <button (click)="openAddNewHeroSnippet()">Open add new hero snippet</button>
+    <div *ngIf="addNewHeroSnippet" id="add-new-hero-snippet">
+        <label for="hero-name">Hero name</label>
+        <input name="hero-name" type="text" (input)="newHero.name = $event.target.value"/>
+        <br />
+        <label for="hero-power">Hero power</label>
+        <select name="hero-power" selected="newHero.power" (change)="newHero.power = $event.target.value">
+            <option value="Summoning Husaria">Summoning Husaria</option>
+            <option value="Flying">Flying</option>
+            <option selected value="Invisibility on demand">Invisibility on demand</option>
+            <option value="Teleportation in 10km radius">Teleportation in 10km radius</option>
+          </select>
+          <br />
+          <p *ngIf="errorOccured" class="error-message">You must provide both name and power</p>
+          <br />
+          <button (click)="addNewHero()">Add</button>
+          <button (click)="cancelNewHero()">Cancel</button>
+        <hr>
+    </div>
+</div>
