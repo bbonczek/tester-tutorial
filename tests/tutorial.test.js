@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 fixture `Getting Started`
     .page `http://devexpress.github.io/testcafe/example`
 
-test('After confirming that TestCafe was used, scale and what-do-you-think section become enabled', async t => {
+test.skip('After confirming that TestCafe was used, scale and what-do-you-think section become enabled', async t => {
     await t
         .expect(Selector('#tried-test-cafe').checked).eql(false)
         .expect(Selector('#slider.ui-state-disabled').exists).eql(true)
@@ -12,7 +12,9 @@ test('After confirming that TestCafe was used, scale and what-do-you-think secti
         .expect(Selector('#slider.ui-state-disabled').exists).eql(false)
     });
 
-    test('nazwa-testu', async t => {
+    test('verify form submition', async t => {
         await t
-            .click(Selector('qwe'));
+            .typeText("#developer-name", "Filip")
+            .click(Selector('#submit-button'))
+            .expect(Selector('#article-header').textContent).eql("Thank you, Filip!")
         });
