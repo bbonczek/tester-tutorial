@@ -11,3 +11,8 @@ test('After confirming that TestCafe was used, scale and what-do-you-think secti
         .expect(Selector('#tried-test-cafe').checked).eql(true)
         .expect(Selector('#slider.ui-state-disabled').exists).eql(false)
     });
+
+    test('nazwa-testu', async t => {
+        await t
+            .click(Selector('qwe'));
+        });
