@@ -1,10 +1,13 @@
 import { Selector } from 'testcafe';
 
 fixture `Getting Started`
-    .page `http://devexpress.github.io/testcafe/example`;
+    .page `http://devexpress.github.io/testcafe/example`
 
-test('My first test', async t => {
+test('After confirming that TestCafe was used, scale and what-do-you-think section become enabled', async t => {
     await t
-        .click(Selector('#tried-test-cafe'))
-
-});
+        .expect(Selector('#tried-test-cafe').checked).eql(false)
+        .expect(Selector('#slider.ui-state-disabled').exists).eql(true)
+        .click('#tried-test-cafe')
+        .expect(Selector('#tried-test-cafe').checked).eql(true)
+        .expect(Selector('#slider.ui-state-disabled').exists).eql(false)
+    });

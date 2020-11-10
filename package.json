@@ -15,7 +15,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "testcafe chrome tests/*.test.js"
+    "e2e": "testcafe chrome tests/*.test.js --speed=0.3"
   },
   "dependencies": {
     "@angular/animations": "~10.1.3",
