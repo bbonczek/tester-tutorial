@@ -52,3 +52,17 @@ Jeżeli tego nie pamiętasz, uzyj  po prostu `git push`, a git podpowie ci cał�
  Seletory można łączyć ze sobą - na przykład `div.nazwa-klasy` wybierze element div, który jednocześnie ma klase 'nazwa-klasy'.
 
  Ściąga: https://appletree.or.kr/quick_reference_cards/CSS/CSS%20selectors%20cheatsheet.pdf
+
+## Zadania
+1) Przetestuj funkcjonalność edytowania danych (imienia i supermocy bohatera)
+2) Przetestuj funkcjonalność dodawania nowego bohatera (guzik add)
+3) Przetestuj funkcjonalność cancelowania dodawania (guzik cancel) - formularz po scancelowaniu i ponownym otwarciu nie powinien mieć wypełnionego pola 'name'.
+
+Zadanie z gwiadką:
+4) Przetestuj funkcjonalność dodawania wielu bohaterów. Do początkowych 3 (Windstorm, Dr. Nice i Magneta) dodaj kolejnych 20.
+   Sprawdź czy ID ostatniego bohatera to '23'. Powinno to wyglądać mniej więcej tak:
+    ![Getting Started](docs-images/test-with-repetitions.png)
+	Podpowiedzi:
+		* żeby nie powtarzać 20 razy kodu dodawania nowego bohatera wykorzystaj pętlę (na przykład pętlę loop).
+		Przykład użycia tutaj: https://github.com/DevExpress/testcafe/issues/1621#issuecomment-315879489 (ten pierwszy przykład w odpowiedzi AlexandraMoskovkina)
+		* w testcafie nie jest tak, że cały kod testu musi być nieprzerwanym ciągiem. Te 2 testy są równoważne i zachowują się dokładnie tak samo:
