@@ -18,6 +18,7 @@
 - `git merge <name-of-branch>` - dodaje zmiany z brancha <name-of-branch> do brancha na którym obecnie się znajdujesz
 - `git pull` - pobiera zmiany z 'remota' które inni spushowali i aplikuje je do twojego lokalnego brancha
 - `git log` - pokazuje ci liste commitów
+
 TO CO JEST NAJWAŻNIEJSZE:
 
 1) Chcesz się upewnić że twój branch jest aktualny (zwykle robisz to rano, po zmianie brancha, albo po tym gdy wiesz że ktoś spushował zmiany do brancha nad którym pracujesz)
@@ -57,12 +58,21 @@ Jeżeli tego nie pamiętasz, uzyj  po prostu `git push`, a git podpowie ci cał�
 1) Przetestuj funkcjonalność edytowania danych (imienia i supermocy bohatera)
 2) Przetestuj funkcjonalność dodawania nowego bohatera (guzik add)
 3) Przetestuj funkcjonalność cancelowania dodawania (guzik cancel) - formularz po scancelowaniu i ponownym otwarciu nie powinien mieć wypełnionego pola 'name'.
+4) Do istniejących komend w package.jsonie dodaj 2 kolejne:
+   - `e2e:chrome-and-firefox` - komenda powinna odpalać wszystkie testy na 2 przeglądarkach - firefoxie i chromie (naraz)
+   - `e2e:parallel-and-screenshots` komenda powinna odpalać wszystkie testy **tylko** na chromie, ale w 2 przeglądarkach naraz (tak żeby było szybciej). Dodatkowo dodaj funkcjonalność robienia screenshotów w sfailowanych testach (będziesz musiał dodać sobie jakiś test który będzie failował). Screenshoty powinny zapisywać się w folderze `failed-tests-screenshots`
 
-Zadanie z gwiadką:
-4) Przetestuj funkcjonalność dodawania wielu bohaterów. Do początkowych 3 (Windstorm, Dr. Nice i Magneta) dodaj kolejnych 20.
-   Sprawdź czy ID ostatniego bohatera to '23'. Powinno to wyglądać mniej więcej tak:
-    ![Getting Started](docs-images/test-with-repetitions.png)
-	Podpowiedzi:
-		* żeby nie powtarzać 20 razy kodu dodawania nowego bohatera wykorzystaj pętlę (na przykład pętlę loop).
-		Przykład użycia tutaj: https://github.com/DevExpress/testcafe/issues/1621#issuecomment-315879489 (ten pierwszy przykład w odpowiedzi AlexandraMoskovkina)
-		* w testcafie nie jest tak, że cały kod testu musi być nieprzerwanym ciągiem. Te 2 testy są równoważne i zachowują się dokładnie tak samo:
+
+#### Zadanie z gwiadką:
+
+5) Przetestuj funkcjonalność dodawania wielu bohaterów. Do początkowych 3 (Windstorm, Dr. Nice i Magneta) dodaj kolejnych 20. Sprawdź czy ID ostatniego bohatera to '23'.
+
+Powinno to wyglądać mniej więcej tak (nazwa dodatkowego bohatera jest dowolna):
+![homework-with-star](docs-images/test-with-repetitions.png)
+
+Podpowiedzi:
+
+- żeby nie powtarzać 20 razy kodu dodawania nowego bohatera wykorzystaj pętlę (na przykład pętlę loop). Przykład użycia [tutaj](https://github.com/DevExpress/testcafe/issues/1621#issuecomment-315879489) (ten pierwszy przykład w odpowiedzi AlexandraMoskovkina)
+
+- w testcafie nie jest tak, że cały kod testu musi być nieprzerwanym ciągiem. Na przykład te 2 testy są równoważne i zachowują się dokładnie tak samo:
+![homework-with-star](docs-images/same-tests-comparision.png)
